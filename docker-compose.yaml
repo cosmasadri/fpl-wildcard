@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  api:
+    restart: always
+    build: ./api/
+    command: ["yarn", "run", "start:dev"]
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/app
+  # frontend:
+  #   restart: always
+  #   build: ../frontend/
+  #   volumes:
+  #     - ./frontend:/src
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
